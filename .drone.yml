@@ -5,7 +5,7 @@ steps:
 - name: build
   image: iron/go:dev
   commands:
-    - go build app.go
+    - go get github.com/go-telegram-bot-api/telegram-bot-api && go build app.go
 
 - name: docker  
   image: plugins/docker

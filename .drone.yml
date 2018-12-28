@@ -1,0 +1,17 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: iron/go:dev
+  commands:
+    - go build app.go
+
+- name: docker  
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: stepri/telegramlogger
